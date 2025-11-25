@@ -67,7 +67,7 @@ class dirtyItem
     private bool $allowNull = true;
     private $devaultValue = null;
 
-    public function __construct(string $name, string $type, array $treatment, ?int $maxLength = null, bool $allowNull = true, $devaultValue = null)
+    public function __construct(string $name, string $type, ?int $maxLength = null, bool $allowNull = true, $devaultValue = null)
     {
         if ($this->typeValid($type)) {
             $this->name = $name;
@@ -94,7 +94,7 @@ class Sanitation
         $treatment = [];
         if ($this->typeValid($type)) {
             $treatment = $this->getTreatment($type);
-            $this->dirty[$name] = new dirtyItem($name, $type, $treatment, $maxLength, $allowNull, $devaultValue);
+            $this->dirty[$name] = new dirtyItem($name, $type, $maxLength, $allowNull, $devaultValue);
         }
         $treated = $value;
         foreach ($treatment as $key => $name) {
