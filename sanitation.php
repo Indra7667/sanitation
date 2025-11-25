@@ -127,7 +127,7 @@ class Sanitation
 
     private function boolean($value): bool
     {
-        $result = is_bool($value) ? $value : $value == "true" || $value === 1;
+        $result = is_bool($value) ? $value : $value === "true" || $value === 1;
         return $result;
     }
 }
