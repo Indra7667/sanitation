@@ -122,6 +122,7 @@ class Sanitation
     {
         $value = str_replace('`', "'", (string)$value);
         $value = str_replace('"', "'", (string)$value);
+        $value = str_replace('\\', "/", (string)$value);
         return $value;
     }
 
