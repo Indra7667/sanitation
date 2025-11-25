@@ -123,6 +123,7 @@ class Sanitation
         $value = str_replace('`', "'", (string)$value);
         $value = str_replace('"', "'", (string)$value);
         $value = str_replace('\\', "/", (string)$value);
+        $value = str_replace('_', " ", (string)$value);
         return $value;
     }
 
