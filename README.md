@@ -1,9 +1,10 @@
 example:
 ```
-$sanitated = new Sanitation();
 $input = '`foo!@#$%^&*bar<br><p><a>"';
 $input2 = 'true';
 $input3 = '1234abcs';
+
+$sanitated = new Sanitation();
 $sanitated->sanitate('name', 'str', $input);
 $sanitated->sanitate('logged', 'bool', $input2);
 $sanitated->sanitate('id', 'int', $input3);
