@@ -30,7 +30,6 @@ class TreatmentHandler
  *
  * should include:
  * @var string $name of the var
- * @var availableTypes $type of the var
  *
  * and optional limitations such as:
  * @var int $maxLength of the var
