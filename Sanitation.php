@@ -1,4 +1,6 @@
 <?php
+use TypeHandler;
+
 class TreatmentHandler
 {
     /**
@@ -21,8 +23,6 @@ class TreatmentHandler
         $normal = TypeHandler::normalizeType($type);
         return self::$treatments[$normal];
     }
-
-    final public function getDefault(string $type) {}
 }
 
 /**
@@ -75,11 +75,7 @@ class Sanitation
 
         if (is_null($value)) {
 
-            $treated = null; #fallback
-            if (!$allowNull) {
-            } else {
-                $treated = $defaultValue ?? null;
-            }
+            $treated = $allowNull ? $defaultValue ?? null : TypeHandler::getDefault($type);
 
         } else {
             $treated = $value;

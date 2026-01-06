@@ -35,4 +35,16 @@ class TypeHandler
     {
         return \array_key_exists($type, self::$alias) ? self::$alias[$type] : 'null';
     }
+
+    final public static function getDefault(string $type) {
+        $normal = self::normalizeType($type);
+        $default = match ($normal) {
+            'string' => '',
+            'integer' => 0,
+            'boolean' => false,
+            'null' => null,
+            default => null
+        };
+        return $default;
+    }
 }
