@@ -4,8 +4,10 @@ class TypeHandler
     private static array $alias = [
         "int"       => "integer",
         "integer"   => "integer",
-        "str"       => "string",
-        "string"    => "string",
+        "str"       => "string", // common string
+        "string"    => "string", // common string
+        "wys"       => "wysiwyg", // wysiwyg string
+        "wysiwyg"   => "wysiwyg", // wysiwyg string
         "bool"      => "boolean",
         "boolean"   => "boolean",
         "empty"     => "null",
@@ -39,6 +41,7 @@ class TypeHandler
     final public static function getDefault(string $type) {
         $normal = self::normalizeType($type);
         $default = match ($normal) {
+            'wysiwyg'=> '',
             'string' => '',
             'integer' => 0,
             'boolean' => false,
